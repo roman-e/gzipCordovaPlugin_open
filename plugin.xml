@@ -10,7 +10,7 @@
  
  
     <js-module src="www/ungzip.js" name="UnGzip">
-        <clobbers target="window.calendar" />
+        <clobbers target="window.inflate" />
     </js-module>
  
     <!-- android -->
