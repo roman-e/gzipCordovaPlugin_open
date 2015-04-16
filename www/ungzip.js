@@ -6,7 +6,7 @@ var inflate = {
 			"InflateService",
 			"inflate",
 			[{
-				"content", deflatedContent
+				"content": deflatedContent
 			}]
 		);
 	}
