@@ -12,6 +12,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class InflateService	extends	CordovaPlugin
 {
@@ -27,9 +28,11 @@ public class InflateService	extends	CordovaPlugin
 		if (action.equals(ACTION_INFLATE))
 		{
 			int count = 0;
-			InputStream stream = new ByteArrayInputStream(args.getString(0).getBytes());
+			JSONObject arg_object = args.getJSONObject(0);
+			count++;
+			InputStream stream = new ByteArrayInputStream(arg_object.getString("content").getBytes());
+			count++;
 			try {
-				count++;
 				InputStream gzip = new GZIPInputStream(stream);
 				count++;
 				InputStreamReader reader = new InputStreamReader(gzip);
