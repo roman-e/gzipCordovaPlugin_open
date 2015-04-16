@@ -46,7 +46,7 @@ public class InflateService	extends	CordovaPlugin
 				return true;
 				
 			} catch (IOException e) {
-				callbackContext.error("Error!" + e.getStackTrace());
+				callbackContext.error("Error!" + e.getMessage());
 			}
 		}
 
