@@ -5,6 +5,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
 
@@ -28,11 +29,14 @@ public class InflateService	extends	CordovaPlugin
 		if (action.equals(ACTION_INFLATE))
 		{
 			int count = 0;
+			
 			JSONObject arg_object = args.getJSONObject(0);
 			count++;
-			InputStream stream = new ByteArrayInputStream(arg_object.getString("content").getBytes());
+			InputStream stream; 
 			count++;
 			try {
+				stream = new ByteArrayInputStream(arg_object.getString("content").getBytes("UTF-8"));
+				count++;
 				InputStream gzip = new GZIPInputStream(stream);
 				count++;
 				InputStreamReader reader = new InputStreamReader(gzip);
