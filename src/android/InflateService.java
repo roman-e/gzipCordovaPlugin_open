@@ -60,7 +60,7 @@ public class InflateService	extends	CordovaPlugin
 				
 			} catch (IOException e) {
 //				callbackContext.error("Error! Count: " + count + " Message: " + e.getMessage());
-				callbackContext.error(arg_object.getString("content"));
+				callbackContext.error("Error! : " + arg_object.getString("content"));
 			}
 		}
 
