@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+           id="org.devgirl.calendar"
+      version="0.1.0">
+    <name>UnGzip</name>
+    <description>UnGzip Plugin</description>
+    <license>MIT</license>
+    <keywords>phonegap,gzip</keywords>
+ 
+ 
+    <js-module src="www/ungzip.js" name="UnGzip">
+        <clobbers target="window.calendar" />
+    </js-module>
+ 
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="InflateService">
+                <param name="android-package" value="ch.eswitch.cordova.inflateplugin.InflateService"/>
+            </feature>
+        </config-file>
+ 
+        <source-file src="src/android/InflateService.java" target-dir="src/ch/eswitch/cordova/inflateplugin" />      
+     </platform>          
+</plugin>
