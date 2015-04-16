@@ -26,17 +26,23 @@ public class InflateService	extends	CordovaPlugin
 		
 		if (action.equals(ACTION_INFLATE))
 		{
-		
+			int count = 0;
 			InputStream stream = new ByteArrayInputStream(args.getString(0).getBytes());
 			try {
+				count++;
 				InputStream gzip = new GZIPInputStream(stream);
+				count++;
 				InputStreamReader reader = new InputStreamReader(gzip);
+				count++;
 				BufferedReader in = new BufferedReader(reader);
+				count++;
 				StringBuilder content = new StringBuilder();
+				count++;
 				
 				String readLine;
 				while ((readLine = in.readLine()) != null)
 				{
+					count++;
 					content.append(readLine);
 					content.append("\n");
 				}
@@ -46,7 +52,7 @@ public class InflateService	extends	CordovaPlugin
 				return true;
 				
 			} catch (IOException e) {
-				callbackContext.error("Error!" + e.getMessage());
+				callbackContext.error("Error! Count: " + count + " Message: " + e.getMessage());
 			}
 		}
 
